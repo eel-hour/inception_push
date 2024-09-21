@@ -7,4 +7,4 @@ RUN openssl req -x509 -nodes -out /etc/nginx/ssl/inception.crt -keyout \
 COPY ./conf/nginx.conf /etc/nginx/nginx.conf
 RUN mkdir -p /var/www/wordpress
 RUN chown -R www-data:www-data /var/www/wordpress
-CMD ["nginx", "-g", "daemon off;"]
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
