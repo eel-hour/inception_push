@@ -12,20 +12,21 @@ ping_mdb() {
     nc -zv mariadb 3306 > /dev/null
     return $?
 }
+
 var=0
-while [var -lt 10]; do
+while [ $var -lt 10 ]; do
     ping_mdb
     if [ $? -eq 0 ]; then
         echo "***MARIADB IS RUNNING***"
         break
     else
-        echo "***PENDINGGG***"
         sleep 1
     fi
+    var=$((var + 1))
 done
 
 
-if [ var -gt 10 ]; then
+if [ $var -gt 10 ]; then
     echo "***MARIADB IS NOT RESPONDING***"
 fi
 

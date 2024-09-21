@@ -6,19 +6,19 @@ all: up
 up: build
 	@mkdir -p $(WP_DATA)
 	@mkdir -p $(MDB_DATA)
-	docker-compose -f ./src/docker-compose.yml up -d
+	docker-compose -f ./srcs/docker-compose.yml up -d
 
 down:
-	docker-compose -f ./src/docker-compose.yml down
+	docker-compose -f ./srcs/docker-compose.yml down
 
 stop:
-	docker-compose -f ./src/docker-compose.yml stop
+	docker-compose -f ./srcs/docker-compose.yml stop
 
 start:
-	docker-compose -f ./src/docker-compose.yml start
+	docker-compose -f ./srcs/docker-compose.yml start
 
 build:
-	docker-compose -f ./src/docker-compose.yml build
+	docker-compose -f ./srcs/docker-compose.yml build
 
 rmi:
 	docker rmi -f $$(docker images -qa)
